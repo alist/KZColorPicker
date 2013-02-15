@@ -32,7 +32,6 @@
 			self.contentScaleFactor = [[UIScreen mainScreen] scale];
         
         [self.layer insertSublayer:gradientLayer atIndex:0];
-        [gradientLayer release];
 		[self setKeyColor:[UIColor whiteColor]];
     }
     return self;
@@ -46,10 +45,6 @@
 }
 */
 
-- (void)dealloc 
-{
-    [super dealloc];
-}
 
 - (void) setKeyColor:(UIColor *)c
 {	

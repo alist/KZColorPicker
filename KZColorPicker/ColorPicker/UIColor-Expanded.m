@@ -32,14 +32,6 @@
 // Static cache of looked up color names. Used with +colorWithName:
 static NSMutableDictionary *colorNameCache = nil;
 
-#if SUPPORTS_UNDOCUMENTED_API
-// UIColor_Undocumented
-// Undocumented methods of UIColor
-@interface UIColor (UIColor_Undocumented)
-- (NSString *)styleString;
-@end
-#endif // SUPPORTS_UNDOCUMENTED_API
-
 @interface UIColor (UIColor_Expanded_Support)
 + (UIColor *)searchForColorByName:(NSString *)cssColorName;
 @end
@@ -325,9 +317,9 @@ static NSMutableDictionary *colorNameCache = nil;
 - (NSString *)hexStringFromColor 
 {
     if([self alpha] != 1.0)
-        return [NSString stringWithFormat:@"%0.8X", self.rgbaHex];
+        return [NSString stringWithFormat:@"%0.8X", (int)self.rgbaHex];
     else
-        return [NSString stringWithFormat:@"%0.6X", self.rgbHex];
+        return [NSString stringWithFormat:@"%0.6X", (int)self.rgbHex];
 }
 
 + (UIColor *)colorWithString:(NSString *)stringToConvert {

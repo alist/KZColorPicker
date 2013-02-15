@@ -26,7 +26,6 @@
         checkerboard.clipsToBounds = YES;
         checkerboard.userInteractionEnabled = NO;
         [self addSubview:checkerboard];
-        [checkerboard release];
         
         gradientLayer = [[CAGradientLayer alloc] init];
         gradientLayer.bounds = CGRectMake(horizontal ? 18 : 6,
@@ -50,16 +49,11 @@
         }
         
         [checkerboard.layer addSublayer:gradientLayer];
-        [gradientLayer release];
 		[self setKeyColor:[UIColor whiteColor]];
     }
     return self;
 }
 
-- (void)dealloc
-{
-    [super dealloc];
-}
 
 - (void) setKeyColor:(UIColor *)c
 {	

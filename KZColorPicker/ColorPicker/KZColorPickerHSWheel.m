@@ -32,12 +32,10 @@
 		wheel.frame = CGRectMake(0, 0, 240, 240);
 		[self addSubview:wheel];
 		self.wheelImageView = wheel;
-		[wheel release];
         
 		UIImageView *wheelKnob = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"colorPickerKnob.png"]];
 		[self addSubview:wheelKnob];
 		self.wheelKnobView = wheelKnob;
-		[wheelKnob release];
 		
 		self.userInteractionEnabled = YES;		
 		self.currentHSV = HSVTypeMake(0, 0, 1);				
@@ -47,9 +45,6 @@
 
 - (void)dealloc 
 {
-	[wheelImageView release];
-	[wheelKnobView release];
-    [super dealloc];
 }
 
 - (void) mapPointToColor:(CGPoint) point

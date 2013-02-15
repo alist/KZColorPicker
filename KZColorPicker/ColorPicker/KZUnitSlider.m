@@ -27,7 +27,6 @@
 		UIImageView *knob = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"colorPickerKnob.png"]];
 		[self addSubview:knob];		
 		self.sliderKnobView = knob;
-		[knob release];
 		
 		self.backgroundColor = [UIColor clearColor];
 		self.userInteractionEnabled = YES;
@@ -45,11 +44,6 @@
 }
 */
 
-- (void)dealloc
-{
-    [sliderKnobView release];
-    [super dealloc];
-}
 
 - (CGFloat) value
 {

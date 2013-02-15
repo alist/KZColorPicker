@@ -49,7 +49,6 @@
 	[wheel addTarget:self action:@selector(colorWheelColorChanged:) forControlEvents:UIControlEventValueChanged];
 	[self addSubview:wheel];
 	self.colorWheel = wheel;
-	[wheel release];
 	
 	// brightness slider
 	KZColorPickerBrightnessSlider *slider = [[KZColorPickerBrightnessSlider alloc] initWithFrame:CGRectMake(24, 
@@ -59,7 +58,6 @@
 	[slider addTarget:self action:@selector(brightnessChanged:) forControlEvents:UIControlEventValueChanged];
 	[self addSubview:slider];
 	self.brightnessSlider = slider;
-	[slider release];
     
     // alpha slider
     KZColorPickerAlphaSlider *alpha = [[KZColorPickerAlphaSlider alloc] initWithFrame:CGRectMake(24, 
@@ -69,7 +67,6 @@
     [alpha addTarget:self action:@selector(alphaChanged:) forControlEvents:UIControlEventValueChanged];
 	[self addSubview:alpha];
     self.alphaSlider = alpha;
-	[alpha release];
     
     // current color indicator hier.
     KZColorCompareView *colorView = [[KZColorCompareView alloc] initWithFrame:CGRectMake(10, 10, 44, 44)];
@@ -77,7 +74,6 @@
     colorView.oldColor = self.oldColor;
     self.currentColorView = colorView;    
     [self addSubview:colorView];
-    [colorView release];
     
 	// swatches.	    
     NSMutableArray *colors = [NSMutableArray array];    
@@ -104,7 +100,6 @@
         [swatch addTarget:self action:@selector(swatchAction:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:swatch];
         [swatches addObject:swatch];
-        [swatch release];
     }	
 	
 	self.selectedColor = [UIColor whiteColor];//[UIColor colorWithRed:0.349 green:0.613 blue:0.378 alpha:1.000];
@@ -120,17 +115,7 @@
     return self;
 }
 
-- (void)dealloc 
-{
-	[selectedColor release];
-	[colorWheel release];
-	[brightnessSlider release];
-    [alphaSlider release];
-    [currentColorIndicator release];
-    [swatches release];
-    [_currentColorView release];
-    [_oldColor release];
-    [super dealloc];
+- (void)dealloc {
 }
 
 - (void) awakeFromNib
@@ -181,8 +166,8 @@ RGBType rgbWithUIColor(UIColor *color)
 }
 - (void) setOldColor:(UIColor *)col
 {
-    [col retain];
-    [_oldColor release];
+//    [col retain];
+//    [_oldColor release];
     
     _oldColor = col;
     self.currentColorView.oldColor = _oldColor;
@@ -190,8 +175,8 @@ RGBType rgbWithUIColor(UIColor *color)
 
 - (void) setSelectedColor:(UIColor *)c
 {
-	[c retain];
-	[selectedColor release];
+//	[c retain];
+//	[selectedColor release];
 	selectedColor = c;
 	
 	RGBType rgb = rgbWithUIColor(c);

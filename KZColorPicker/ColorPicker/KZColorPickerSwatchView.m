@@ -58,9 +58,6 @@ static CGFloat kCheckmarkWidth = 22;
 
 - (void)dealloc 
 {
-    [_color release];
-    [_checkerboardColor release];
-    [super dealloc];
 }
 
 #pragma mark - Custom Properties
@@ -88,8 +85,6 @@ static CGFloat kCheckmarkWidth = 22;
 
 - (void) setColor:(UIColor *)color
 {
-    [color retain];
-    [_color release];
     _color = color;
     
     [self setNeedsDisplay];

@@ -27,10 +27,6 @@
 #pragma mark - Init/Dealloc
 - (void)dealloc 
 {
-    [_oldColor release];
-    [_currentColor release];
-    [_checkerboardColor release];
-    [super dealloc];
 }
 
 - (id)initWithFrame:(CGRect)frame 
@@ -54,8 +50,6 @@
 #pragma mark - Custom Properties
 - (void) setOldColor:(UIColor *)color
 {
-    [color retain];
-    [_oldColor release];
     _oldColor = color;
     
     [self setNeedsDisplay];
@@ -63,8 +57,6 @@
 
 - (void) setCurrentColor:(UIColor *)color
 {
-    [color retain];
-    [_currentColor release];
     _currentColor = color;
     
     [self setNeedsDisplay];
